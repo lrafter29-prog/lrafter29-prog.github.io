@@ -23,43 +23,87 @@
       const qaContainer = document.getElementById("qaContainer");
 
       const questions = [
-        "Where did you grow up?",
-        "What does “stereotype” mean to you?",
-        "When did you first learn about racism or prejudice?",
-        "Have you ever been stereotyped?",
-        "What stereotype have you heard about your culture?",
-        "Has anyone assumed something about you that wasn’t true?",
-        "How did you react when that happened?",
-        "Have you seen someone else experience stereotypes?",
-        "Have you ever felt judged because of your background?",
-        "Have you experienced prejudice at school or work?",
-        "Have you ever experienced racism directly?",
-        "Where did that experience happen?",
-        "How did it make you feel?",
-        "Did anyone help or stand up for you?",
-        "Did the experience change how you see people?",
-        "Do you think stereotypes are common today?",
-        "Do you think things were different when you were younger?",
-        "What stereotypes do people often believe that aren’t true?",
-        "How do stereotypes affect people’s lives?",
-        "Why do you think prejudice still exists?",
-        "How can people challenge stereotypes?",
-        "What should schools teach about racism?",
-        "What should parents teach kids about fairness?",
-        "How can communities reduce prejudice?",
-        "What advice would you give young people about respecting others?",
+        { question: "Where did you grow up?", answer: "place, family" },
+        { question: "What does “stereotype” mean to you?", answer: "" },
+        {
+          question: "When did you first learn about racism or prejudice?",
+          answer: "",
+        },
+        { question: "Have you ever been stereotyped?", answer: "" },
+        {
+          question: "What stereotype have you heard about your culture?",
+          answer: "",
+        },
+        {
+          question: "Has anyone assumed something about you that wasn’t true?",
+          answer: "",
+        },
+        { question: "How did you react when that happened?", answer: "" },
+        {
+          question: "Have you seen someone else experience stereotypes?",
+          answer: "",
+        },
+        {
+          question: "Have you ever felt judged because of your background?",
+          answer: "",
+        },
+        {
+          question: "Have you experienced prejudice at school or work?",
+          answer: "",
+        },
+        { question: "Have you ever experienced racism directly?", answer: "" },
+        {
+          question: "Where do you think people learn stereotypes from?",
+          answer: "",
+        },
+        {
+          question: "How do media or social media influence stereotypes?",
+          answer: "",
+        },
+        {
+          question: "Why do you think some stereotypes continue over time?",
+          answer: "",
+        },
+        {
+          question: "How can people question or unlearn stereotypes?",
+          answer: "",
+        },
+        { question: "Do you think stereotypes are common today?", answer: "" },
+        {
+          question: "Do you think things were different when you were younger?",
+          answer: "",
+        },
+        {
+          question:
+            "What stereotypes do people often believe that aren’t true?",
+          answer: "",
+        },
+        { question: "How do stereotypes affect people’s lives?", answer: "" },
+        { question: "Why do you think prejudice still exists?", answer: "" },
+        { question: "How can people challenge stereotypes?", answer: "" },
+        { question: "What should schools teach about racism?", answer: "" },
+        {
+          question: "What should parents teach kids about fairness?",
+          answer: "",
+        },
+        { question: "How can communities reduce prejudice?", answer: "" },
+        {
+          question:
+            "What advice would you give young people about respecting others?",
+          answer: "",
+        },
       ];
 
-      questions.forEach((questionText, index) => {
-        const item = document.createElement("li");
-        item.className = "qa-card";
-        item.innerHTML = `
+      questions.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.className = "qa-card";
+        li.innerHTML = `
           <label>
-            ${questionText}
-            <textarea class="qa-answer" placeholder="Type your answer here" rows="3"></textarea>
+            ${item.question}
+            <textarea class="qa-answer" rows="3" readonly>${item.answer}</textarea>
           </label>
         `;
-        qaContainer.appendChild(item);
+        qaContainer.appendChild(li);
       });
 
       function revealCards() {
