@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History Project - Q&A Template</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <h1>History Project</h1>
+    </header>
+
+    <main class="container">
+      <ol id="qaContainer" class="qa-list"></ol>
+    </main>
+
+    <footer>
+      <p>Made by Le'a</p>
+    </footer>
+
+    <script>
+      const qaContainer = document.getElementById("qaContainer");
+
+      const questions = [
+        "Where did you grow up?",
+        "What does “stereotype” mean to you?",
+        "When did you first learn about racism or prejudice?",
+        "Have you ever been stereotyped?",
+        "What stereotype have you heard about your culture?",
+        "Has anyone assumed something about you that wasn’t true?",
+        "How did you react when that happened?",
+        "Have you seen someone else experience stereotypes?",
+        "Have you ever felt judged because of your background?",
+        "Have you experienced prejudice at school or work?",
+        "Have you ever experienced racism directly?",
+        "Where did that experience happen?",
+        "How did it make you feel?",
+        "Did anyone help or stand up for you?",
+        "Did the experience change how you see people?",
+        "Do you think stereotypes are common today?",
+        "Do you think things were different when you were younger?",
+        "What stereotypes do people often believe that aren’t true?",
+        "How do stereotypes affect people’s lives?",
+        "Why do you think prejudice still exists?",
+        "How can people challenge stereotypes?",
+        "What should schools teach about racism?",
+        "What should parents teach kids about fairness?",
+        "How can communities reduce prejudice?",
+        "What advice would you give young people about respecting others?",
+      ];
+
+      questions.forEach((questionText, index) => {
+        const item = document.createElement("li");
+        item.className = "qa-card";
+        item.innerHTML = `
+          <label>
+            ${questionText}
+            <textarea class="qa-answer" placeholder="Type your answer here" rows="3"></textarea>
+          </label>
+        `;
+        qaContainer.appendChild(item);
+      });
+
+      function revealCards() {
+        document.querySelectorAll(".qa-card").forEach((card, index) => {
+          setTimeout(() => card.classList.add("visible"), index * 60);
+        });
+      }
+
+      window.addEventListener("DOMContentLoaded", revealCards);
+      window.addEventListener("scroll", () => {
+        document.querySelectorAll(".qa-card").forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 120) {
+            card.classList.add("visible");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
